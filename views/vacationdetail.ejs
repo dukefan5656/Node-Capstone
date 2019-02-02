@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header id="header">
+        <h1>The Lazy Traveler</h1>
+
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </header>
+
+
+
+    <% if (legs.length) { %>
+    <div id="show-info" class="form-style-10">
+        <% legs.forEach(function(leg){ %>
+        <div class="leg-quick-view">
+            <div class="city" data-leg-id="<%=leg._id%>" data-title="<%=leg.accommodation.city%>"
+                data-accommodation-website="<%=leg.accommodation.website%>" data-accommodation-cost="<%=leg.accommodation.cost%>"
+                data-accommodation-notes="<%=leg.accommodation.notes%>" data-accommodation-booked="<%=leg.accommodation.booked%>"
+                data-length="<%=leg.accommodation.days %>" data-accommodation-id="<%=leg.accommodation._id%>"
+                data-accommodation-type="<%=leg.accommodation.type%>" data-accommodation="<%=leg.accommodation.name%>"
+                data-accommodation-booked="<%=leg.accommodation.booked%>">
+                <p>
+                    <%= leg.accommodation.city %>
+                </p>
+            </div>
+            <span class="route-group">
+                <div class="transportation" id="transportation-icon" data-leg-id="<%=leg._id%>"
+                    data-transportation-booked="<%=leg.transportation.booked%>" data-destination="<%=leg.transportation.destination%>"
+                    data-transportation-website="<%=leg.transportation.website%>" data-transportation-cost="<%=leg.transportation.cost%>"
+                    data-transportation-notes="<%=leg.transportation.notes%>" data-transportation-booked="<%=leg.accommodation.booked%>"
+                    data-transportation-id="<%=leg.transportation._id%>" data-transportation-type="<%=leg.transportation.type%>">
+                    <% if(leg.transportation.type === "Plane"){ %>
+                    <img src="/images/airplane.png" />
+                    <% } else if(leg.transportation.type === "Bus"){ %>
+                    <img src="/images/bus.png" />
+                    <% } else { %>
+                    <img src="/images/train.png" />
+                    <% } %>
+                </div>
+                <div class="transportation" data-leg-id="<%=leg._id%>" data-transportation-booked="<%=leg.transportation.booked%>"
+                    data-destination="<%=leg.transportation.destination%>" data-transportation-website="<%=leg.transportation.website%>"
+                    data-transportation-cost="<%=leg.transportation.cost%>" data-transportation-notes="<%=leg.transportation.notes%>"
+                    data-transportation-booked="<%=leg.accommodation.booked%>" data-transportation-id="<%=leg.transportation._id%>"
+                    data-transportation-type="<%=leg.transportation.type%>">
+                    <p>
+                        <%= leg.transportation.destination %>
+                    </p>
+                </div>
+            </span>
+        </div>
+        <% }) %>
+        <form class="view-leg" action="/profile" method="get">
+            <div class="vacation-button">
+                <input type="submit" action="" value="view profile" />
+            </div>
+        </form>
+    </div>
+
+    <% } else { %>
+    <div class="form-style-10">
+        <span class="second-tag">
+            <p>A quick view of your submitted legs will go here once you get started!</p>
+        </span>
+    </div>
+    <% } %>
+
+    <span id="id" data-vacation-id="<%=vacation._id%>"></span>
+    <div id="light" class="white_content"></div>
+    <div id="fade" class="black_overlay"></div>
+
+    <div class="wrapper">
+        <div class="leg-block">
+            <% legs.forEach(function(trip){ %>
+            <div class="leg-container">
+                <div class="form-style-10">
+                    <h2><span id="step"> 1 </span>Accommodation Information<span>To edit a section, click on any
+                            sentence in the box</span></h2>
+
+                    <div class="inner-wrap">
+                        <ul class="accommodation-details" data-title="<%=trip.accommodation.city%>"
+                            data-accommodation-website="<%=trip.accommodation.website%>" data-accommodation-cost="<%=trip.accommodation.cost%>"
+                            data-accommodation-notes="<%=trip.accommodation.notes%>" data-accommodation-booked="<%=trip.accommodation.booked%>"
+                            data-length="<%=trip.accommodation.days %>" data-accommodation-id="<%=trip.accommodation._id%>"
+                            data-accommodation-type="<%=trip.accommodation.type%>" data-accommodation="<%=trip.accommodation.name%>">
+                            <li>
+                                Staying in
+                                <%= trip.accommodation.city %> for
+                                <%= trip.accommodation.days %> days
+                            </li>
+                            <li>
+                                Staying in a(n)
+                                <%= trip.accommodation.type %> called
+                                <%= trip.accommodation.name %> for $
+                                <%=trip.accommodation.cost%> total
+                            </li>
+                            <li>Contact Info for <a href="<%=trip.accommodation.website%>">
+                                    <%=trip.accommodation.name%></a></li>
+                            <% if(trip.accommodation.booked == false) { %>
+                            <li>The accommodation information for this leg has not been booked yet</li>
+                            <%  } else { %>
+                            <li>The accommodation information for this leg has been booked! Hurray!</li>
+                            <%  } %>
+                            <li>
+                                Notes about this stay: <p>
+                                    <%=trip.accommodation.notes%>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-style-10">
+                    <h2><span id="step">2</span>Transportation Information<span>To edit a section, click on any
+                            sentence in the box</span></h2>
+                    <div class="inner-wrap">
+                        <ul class="transportation-details" data-destination="<%=trip.transportation.destination%>"
+                            data-transportation-website="<%=trip.transportation.website%>" data-transportation-cost="<%=trip.transportation.cost%>"
+                            data-transportation-notes="<%=trip.transportation.notes%>" data-transportation-booked="<%=trip.accommodation.booked%>"
+                            data-transportation-id="<%=trip.transportation._id%>" data-transportation-type="<%=trip.transportation.type%>">
+                            <li>
+                                Going from
+                                <%=trip.accommodation.city%> to
+                                <%= trip.transportation.destination %> by
+                                <%= trip.transportation.type %> for $
+                                <%=trip.transportation.cost%>
+                            </li>
+                            <li>Contact Info for <a href="<%=trip.transportation.website%>">
+                                    <%=trip.transportation.type%> ride</a></li>
+                            <% if(trip.transportation.booked == false) { %>
+                            <li>The transportation information for this leg has not been booked yet</li>
+                            <%  } else { %>
+                            <li>The transportation information for this leg has been booked! Hurray!</li>
+                            <%  } %>
+                            <li>
+                                Notes about this trip: <p>
+                                    <%=trip.transportation.notes%>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-style-10 budget-block" id="budget-box">
+                    <h2>Budget Information<span>Click here to see your current budget</span></h2>
+                    <section class="budget-box-collapse hidden">
+                        <div class="inner-wrap">
+                            <p>Total Budget: <span id="money-budget" data-money-budget="<%= vacation.budget.moneyBudget %>">
+                                    <%= vacation.budget.moneyBudget %> </span></p>
+                            <p>Amount of money spent: <span>
+                                    <%= accommodationCost + transportationCost %> </span></p>
+                            <p>Amount of money remaining:
+                                <% if((vacation.budget.moneyBudget - (accommodationCost + transportationCost)) <= 0){ %>
+                                0 (you have overspent by
+                                <%=Math.abs(vacation.budget.moneyBudget - (accommodationCost + transportationCost))%>)
+                                <% } else { %>
+                                <span>
+                                    <%= vacation.budget.moneyBudget - (accommodationCost + transportationCost) %>
+                                </span>
+                            </p>
+                            <% } %>
+                        </div>
+
+                        <div class="inner-wrap">
+                            <p>Amount of money spent per day: <span>
+                                    <%= ((accommodationCost + transportationCost) / daysCost).toFixed(0) %> </span></p>
+                            <% if((vacation.budget.daysBudget - daysCost) && (vacation.budget.moneyBudget - (accommodationCost + transportationCost)) <= 0 ){ %>
+                            <p>Amount of money remaining per day: You are out of money AND days! You baller</p>
+                            <% } else if((vacation.budget.moneyBudget - (accommodationCost + transportationCost)) <= 0 ){ %>
+                            <p>Amount of money remaining per day: You are out of money!</p>
+                            <% } else if((vacation.budget.daysBudget - daysCost) <= 0 ){ %>
+                            <p>Amount of money remaining per day: You are out of days remaining</p>
+                            <% } else { %>
+                            <p>Amount of money remaining per day: <span>$
+                                    <%= (vacation.budget.moneyBudget - (accommodationCost + transportationCost)) / (vacation.budget.daysBudget - daysCost).toFixed(0) %></span></p>
+                            <% } %>
+                        </div>
+
+                        <div class="inner-wrap">
+                            <p>Amount of money spent on accommodations: <span>
+                                    <%= accommodationCost %></span></p>
+                            <p>Amount of money spent on transportation: <span>
+                                    <%= transportationCost %> </span></p>
+                        </div>
+
+                        <div class="inner-wrap">
+                            <p>Total number of days budgeted: <span id="days-budget" data-days-budget="<%=vacation.budget.daysBudget%>">
+                                    <%=vacation.budget.daysBudget%></span></p>
+                            <p>Number of days used: <span>
+                                    <%=daysCost %></span></p>
+                            <% if((vacation.budget.daysBudget - daysCost) <= 0){ %>
+                            <p>Number of days remaining: You are out of days remaining</p>
+                            <% } else { %>
+                            <p>Number of days remaining: <span id="days-remaining" data-days-remaining="<%=vacation.budget.daysBudget - daysCost%>">
+                                    <%=vacation.budget.daysBudget - daysCost%></span></p>
+                            <% } %>
+                        </div>
+
+                        <section class="budget-button-container">
+                            <div class="button-section" id="budget-update">
+                                <input type="submit" value="Update Budget" />
+                            </div>
+
+                            <div class="button-section" id="budget-hide">
+                                <input type="submit" value="Hide Budget" />
+                            </div>
+                        </section>
+                    </section>
+
+                    <div class="button-section" id="budget-show">
+                        <input type="submit" value="Show Budget" />
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let budgetBlock = $('.budget-block'); budgetBlock.each(function (idx, block) {
+        if (idx > 0) { $(block).css({ 'visibility': 'hidden' }) }
+    });
+
+    let transportationBooked = $('.leg-quick-view').attr('data-transportation-booked');
+    let accommodationBooked = $('.leg-quick-view').attr('data-accommodation-booked');
+    let vacation = $('.user').attr('data-legs');
+    let daysRemaining = $('#days-remaining').attr('data-days-remaining');
+    let moneyRemaining = $('#money-remaining').attr('data-money-remaining');
+
+    function checkBooked() {
+        let transportation = $('.transportation');
+        let accommodation = $('.city');
+        console.log(accommodation);
+        console.log(transportation);
+        accommodation.each(function (key, value) {
+            if ($(this).attr('data-accommodation-booked') === 'true') {
+                $(this).addClass('booked');
+                $(this).attr('title', 'This accommodation is booked');
+
+            } else {
+                $(this).addClass('not-booked');
+                $(this).attr('title', 'This accommodation is not booked');
+            };
+        });
+        transportation.each(function (key, value) {
+            console.log(($(this).attr('data-transportation-booked')));
+            if ($(this).attr('data-transportation-booked') === 'true') {
+                $(this).addClass('booked')
+                $(this).attr('title', 'This route is booked');
+
+            } else {
+                $(this).addClass('not-booked');
+                $(this).attr('title', 'This route is not booked');
+            };
+        });
+
+    };
+
+    $('#budget-show').click(function () {
+        $('.budget-box-collapse').removeClass('hidden');
+        $('#budget-show').addClass('hidden');
+    });
+    $('#budget-hide').click(function () {
+        $('.budget-box-collapse').addClass('hidden');
+        $('#budget-show').removeClass('hidden');
+    });
+
+    function vacationCheck() {
+        let daysLeft = $('#daysLeft').attr('data-days-left');
+        if (daysLeft > 0) {
+            console.log('working');
+        };
+    };
+    $(document).ready(function () {
+        vacationCheck();
+    });
+    $('.accommodation-details, .city').click(function () {
+        let legID = $(this).attr('data-leg-id');
+        let id = $(this).attr('data-accommodation-id');
+        let city = $(this).attr('data-title');
+        let days = $(this).attr('data-length');
+        let type = $(this).attr('data-accommodation-type');
+        let accommodation = $(this).attr('data-accommodation');
+        let booked = $(this).attr('data-accommodation-booked');
+        let notes = $(this).attr('data-accommodation-notes');
+        let website = $(this).attr('data-accommodation-website');
+        let cost = $(this).attr('data-accommodation-cost');
+        console.log(legID);
+        $('.white_content').css('display', "block");
+        $('.black_overlay').css('display', 'block');
+
+        $('.white_content').html(`
+        <div class="form-style-10">
+            <h2><span id="step">1</span>Edit Your Accommodation Information</h2>
+            <form action="/updateAccommodationLeg/${id}" method="post">
+      
+            <div class="inner-wrap">
+                <label for="city">Where are you staying?
+                    <input id="city" name="city" type="text" value="${city}">
+                </label>
+
+                <label for="lenth-of-stay">How long do you want to stay in (city)?
+                    <input id="lenth-of-stay" name="days" type="text" value=${days}>
+                </label>
+
+                <label for="accommodation-type">Select Accommodation Type
+                    <select name="type" id="accommodation-type">
+                        <option value="${type}">${type}</option>
+                        <option value="Hostel">Hostel</option>
+                        <option value="Hotel">Hotel</option>
+                        <option value="AirBnB">AirBnB</option>
+                    </select>
+                </label>
+
+                <label for="accommodation-name">What's the name of your accommodation?
+                    <input id="accommodation-name" name="accommodation_name" type="text" value="${accommodation}">
+                </label>   
+                <label for="accommodation-cost">How much is the total cost of your accommodation (after tax)?
+                    <input id="accommodation-cost" name="cost" type="text" value="${cost}">
+                </label>
+
+                <label for="accommodation-contact">Accommodation website:
+                    <input id="accommodation-contact" name="website" type="url" value="${website}">
+                </label>
+
+                <label for="accommodation-notes">Any additional notes about your stay in (city)</label>
+                    <textarea id="accommodation-notes" name="notes">${notes}</textarea>
+                
+                <label for"accommodation-booked> Booked: 
+                    <input id="accommodation-booked" name="booked" type="radio" value="true">
+                </label>
+                <label for"accommodation-booked> Not Booked Yet:
+                    <input id="accommodation-booked" name="booked" type="radio" value="false">
+                </label>
+
+
+                <div class="button-section">
+                 <input type="submit" value="Update Leg" />
+                </div>
+            </div>
+            </form>   
+        </div>
+      `);
+    });
+    $('.black_overlay').click(function () {
+        $('.white_content').css('display', "none");
+        $('.black_overlay').css('display', 'none');
+    });
+    $('.transportation-details, .transportation').click(function () {
+        let legID = $(this).attr('data-leg-id');
+        let id = $(this).attr('data-transportation-id');
+        let destination = $(this).attr('data-destination');
+        let type = $(this).attr('data-transportation-type');
+        let booked = $(this).attr('data-transportation-booked');
+        let notes = $(this).attr('data-transportation-notes');
+        let website = $(this).attr('data-transportation-website');
+        let cost = $(this).attr('data-transportation-cost');
+        console.log(this);
+
+        $('.white_content').css('display', "block");
+        $('.black_overlay').css('display', 'block');
+
+        $('.white_content').html(`
+      <div class="form-style-10">
+        <h2><span id="step">2</span>Edit Your Transportation Information<span>Enter your information getting to the next city</span></h2>
+        <form action="/updateTransportationLeg/${id}" method="post">
+        <div class="inner-wrap">
+            <label for="destination-city">Where are you going next?
+            <input id="destination-city" name="destination" type="text" value="${destination}">
+            </label>    
+
+            <label for="transportation-type">Select Transportation Type
+            <select name="type" id="transportation-type">
+                    <option value="${type}">${type}</option>
+                    <option value="Plane">Plane</option>
+                    <option value="Train">Train</option>
+                    <option value="Bus">Bus</option>
+                </select>
+            </label>
+        
+            <label for="transportation-cost">How much is the total cost of your transportation (after tax)?
+                <input id="transportation-cost" name="cost" type="text" value="${cost}">
+            </label>
+
+            <label for="transportation-contact">Transportation website:
+                <input id="transportation-contact" name="contact" type="url" value="${website}">
+            </label>
+      
+        
+            <label for="accommodation-notes">Any additional notes about your transportation to (city)</label>
+            <textarea id="transportation-notes" name="notes">${notes}</textarea>
+            <label for"accommodation-booked> Booked: 
+                    <input id="transportation-booked" name="booked" type="radio" value="true">
+                </label>
+                <label for"accommodation-booked> Not Booked Yet:
+                    <input id="transportation-booked" name="booked" type="radio" value="false">
+                </label>
+
+      </div>
+            <div class="button-section">
+                <input type="submit" value="Update Leg" />
+            </div>
+        </div>
+        </form>
+        </div>
+      `);
+    });
+    $('#budget-update').click(function () {
+        let id = $('#id').attr('data-vacation-id');
+        let moneyBudget = $('#money-budget').attr('data-money-budget');
+        let daysBudget = $('#days-budget').attr('data-days-budget');
+        console.log(id);
+        $('.white_content').css('display', "block");
+        $('.black_overlay').css('display', 'block');
+
+        $('.white_content').html(`
+      <div class="form-style-10">
+        <h2></span>Budget Information<span>Adjust your budget</span></h2>
+        <form action="/updateBudget/${id}" method="post">
+        <div class="inner-wrap">
+            <label for="money-budget">What is your total budget?
+            <input id="money-budget" name="moneyBudget" type="text" value="${moneyBudget}">
+            </label>    
+        
+            <label for="days-budget">How long is your trip (total in days)?
+                <input id="days-budget" name="daysBudget" type="text" value="${daysBudget}">
+            </label>
+      </div>
+            <div class="button-section">
+                <input type="submit" value="Update Budget" />
+            </div>
+        </div>
+        </form>
+        </div>
+      `);
+    });
+
+    $(document).ready(function () {
+        checkBooked();
+    });
+</script>
+
+</html>
