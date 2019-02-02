@@ -1,14 +1,11 @@
 module.exports = function (app, passport) {
     const { User, Leg, Accommodation, Vacation, Transportation } = require('./models/user')(app.locals.db);
 
-    // normal routes ===============================================================
 
-    // show the home page (will also have our login links)
     app.get('/', function (req, res) {
         res.render('index.ejs');
     });
 
-    // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, async function (req, res, next) {
         let user = req.user;
         let accommodationCost = 0;
@@ -343,7 +340,7 @@ module.exports = function (app, passport) {
     app.post('/login', passport.authenticate('local-login', {
         successRedirect: '/profile',
         failureRedirect: '/login',
-        failureFlash: true // allow flash messages
+        failureFlash: true 
     }));
 
     // SIGNUP =================================
@@ -355,11 +352,10 @@ module.exports = function (app, passport) {
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/create',
         failureRedirect: '/signup',
-        failureFlash: true // allow flash messages
+        failureFlash: true
     }));
 
 
-    // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
 
     app.get('/connect/local', function (req, res) {
         res.render('connect-local.ejs', { message: req.flash('loginMessage') });
@@ -367,11 +363,10 @@ module.exports = function (app, passport) {
     app.post('/connect/local', passport.authenticate('local-signup', {
         successRedirect: '/profile',
         failureRedirect: '/connect/local',
-        failureFlash: true // allow flash messages
+        failureFlash: true 
     }));
 
 
-    // user account will stay active in case they want to reconnect in the future
 
     // local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function (req, res) {

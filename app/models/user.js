@@ -49,6 +49,7 @@ const accommodationSchema = mongoose.Schema({
     notes: String,
 });
 
+
 const transportationSchema = mongoose.Schema({
     destination: String,
     type: String,
