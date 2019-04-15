@@ -1,10 +1,10 @@
 # The Lazy Traveler
 
-### Index
+<h3 id="index">Index</h3>
 1. <a href="#user-story">User Story</a>
-2. Skills Used
-3. API Documentation
-4. Links to Github and live site
+2. <a href="#skills">Skills Used</a>
+3. <a href="#api">API Documentation</a>
+4. <a href="#links">Links to Github and live site</a>
 
 This site was made so you can create and manage backpacking trips more easily. I was a traveler for many years myself and I understand the balance of planning and flexibility. A "leg" is a stay in a place plus a route to a destination. You'll be creating "legs" to add to a vacation.
 
@@ -71,7 +71,7 @@ You have two choices for initiating an edit. You can either click on the visual 
 
 ![edit](https://user-images.githubusercontent.com/34799623/56163610-c2d84100-5f9c-11e9-9913-8cadcbc2bc1b.jpg)
 
-### Skills Used
+<h2 id="skills">Skills Used</h2>
 
 #### Back End
 * Node/Express
@@ -86,7 +86,7 @@ You have two choices for initiating an edit. You can either click on the visual 
 * A11Y
 * Responsive Mobile-First Design
 
-## Sample API Call
+<h2 id="skills">Sample API Call<h2>
 
 #### Submit Transportation Info For A Leg 
 Posts json data about a user's transportation information.
@@ -135,7 +135,10 @@ res.redirect("back")
         })
         .catch(next);
     });
-
+<div id="links">
 #### Github: https://github.com/dukefan5656/Node-Capstone
 
 #### Live Site: https://the-lazy-traveler.herokuapp.com/
+</div>
+
+<a href="#index">Back To Top</a>
