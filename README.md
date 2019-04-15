@@ -65,6 +65,71 @@ You have two choices for initiating an edit. You can either click on the visual 
 
 ![edit](https://user-images.githubusercontent.com/34799623/56163610-c2d84100-5f9c-11e9-9913-8cadcbc2bc1b.jpg)
 
+### Skills Used
+
+#### Back End
+* Node/Express
+* Mongo/Mongoose
+* Mocha/Chai
+* Passport
+* EJS
+
+#### Front End
+* Semantic HTML
+* CSS Flexbox
+* A11Y
+* Responsive Mobile-First Design
+
+## Sample API Call
+
+#### Submit Transportation Info For A Leg 
+Posts json data about a user's transportation information.
+
+#### URL
+/transportationSubmit/:id
+
+#### Method:
+POST
+
+#### URL Params
+Required:
+id=[integer]
+
+#### Data Params
+* destination
+* type
+* website
+* cost
+* booked
+* notes
+
+#### Success Response:
+Code: 200 
+res.redirect("back")
+
+
+#### Sample Call:
+    app.post("/transportationSubmit/:id", isLoggedIn, (req, res, next) => {
+      const TransToUpdate = {
+        destination: req.body.transportation_destination_city,
+        type: req.body.transportation_type,
+        website: req.body.transportation_contact,
+        cost: req.body.transportation_cost,
+        booked: req.body.transportation_booked,
+        notes: req.body.transportation_notes
+      };
+      Transportation.findOne({ _id: req.params.id })
+        .catch(() => null)
+        .then(transportation => {
+          if (!transportation) return;
+          return transportation.update({ $set: TransToUpdate });
+        })
+        .then(() => {
+          res.redirect("back");
+        })
+        .catch(next);
+    });
+
 #### Github: https://github.com/dukefan5656/Node-Capstone
 
 #### Live Site: https://the-lazy-traveler.herokuapp.com/
