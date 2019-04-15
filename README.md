@@ -17,6 +17,8 @@ This form requires
   3. Total length of the vacation (in days)
   4. A calandar selection for when you will be starting your vacation
   
+![vacation-form](https://user-images.githubusercontent.com/34799623/56163870-78a38f80-5f9d-11e9-9af5-02e3ac84d98c.jpg)
+  
 #### Adding Legs
 Once you have submitted the inital information for your vacation, you are re-directed to the main page for adding legs. To begin, you must first fill out the initial accommodation information. No particular information is required, as you can easily edit it later, as well as the trouble with knowing every particular down the line.
 
