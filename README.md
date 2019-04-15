@@ -38,14 +38,19 @@ You then have 3 choices from here.
 #### Adding Transportation Information to an Existing Leg
 The visual representation of the leg at the top of the page indicates whether or not transportation information has been added yet. If you click the red box, a new form is displayed that allows for transporation information to be included for the leg.
   
-  ### Transportation Form
-  Where you are going
+  #### Transportation Form
+* Where you are going
+* Transportation type (plane, bus, train)
+* Total cost of the transportation 
+* Transportation website
+* Additional notes
+* Whether the transportation has been booked or not
 
-  How you are going to get there
+#### Viewing Your Vacation Profile
+Included on the bar where legs are visually displayed, is a "view legs" button. This takes you to an overview of all legs you have created thus far. This is the page that allows you to edit any existing information included in either accommodation, transportation, or budget. 
 
-  An individual budget budget
-
-  General contact info and notes
+#### Editing A Leg
+You have two choices for initiating an edit. You can either click on the visual boxes at the top, or click anywhere in the component that is currently displaying information. The budget box can only be edited by clicking in the component as there is no visual representation of it at the top of the page. All standard fields are editable.
 
 #### Github: https://github.com/dukefan5656/Node-Capstone
 
