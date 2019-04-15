@@ -12,10 +12,10 @@ As a user, you'll be able to register login information to access your account. 
 #### Creating Your First Vacation
 If this is your first time using the site, once you have been authorized, you will be re-directed to the initial vacation creation page to create your first vacation.
 This form requires 
-  1. The name of your vacation
-  2. A total budget (in USD)
-  3. Total length of the vacation (in days)
-  4. A calandar selection for when you will be starting your vacation
+* The name of your vacation
+* A total budget (in USD)
+* Total length of the vacation (in days)
+* A calandar selection for when you will be starting your vacation
   
 ![vacation-form](https://user-images.githubusercontent.com/34799623/56163870-78a38f80-5f9d-11e9-9af5-02e3ac84d98c.jpg)
   
