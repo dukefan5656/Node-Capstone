@@ -20,13 +20,13 @@ Once you have submitted the inital information for your vacation, you are re-dir
 
 ##### Accomodation Form
 
-..*Which location you're staying in (city)
-..*How long
-..*Accommodation Type (Hotel, Hostel, AirBnb)
-..*A total cost for the accommodation
-..*Accommodation website
-..*General contact info and notes
-..*Whether the accommodation has been booked yet or not
+..* Which location you're staying in (city)
+..* How long
+..* Accommodation Type (Hotel, Hostel, AirBnb)
+..* A total cost for the accommodation
+..* Accommodation website
+..* General contact info and notes
+..* Whether the accommodation has been booked yet or not
 
 #### After Submitting Accommodation Form
 Once the form has been submitted, a bar at the top of the page is displayed that shows this "leg". The budget box is also updated.
