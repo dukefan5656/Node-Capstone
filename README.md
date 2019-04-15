@@ -1,10 +1,16 @@
 # The Lazy Traveler
 
+### Index
+1. <a href="#user-story">User Story</a>
+2. Skills Used
+3. API Documentation
+4. Links to Github and live site
+
 This site was made so you can create and manage backpacking trips more easily. I was a traveler for many years myself and I understand the balance of planning and flexibility. A "leg" is a stay in a place plus a route to a destination. You'll be creating "legs" to add to a vacation.
 
 ![Landing](https://user-images.githubusercontent.com/34799623/56163616-c5d33180-5f9c-11e9-95d1-bcb50909c15e.jpg)
 
-### User Story
+<h3 id="user-story>User Story</h3>
 
 #### Registering / Logging In
 As a user, you'll be able to register login information to access your account. If you already have an account, simply login.
