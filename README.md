@@ -4,7 +4,7 @@
 1. <a href="#user-story">User Story</a><br>
 2. <a href="#skills">Skills Used</a><br>
 3. <a href="#api">API Documentation</a><br>
-4. <a href="#links">Links to Github and live site</a><br>
+4. <a href="#links">Links to Github and live site</a><br><br>
 
 
 This site was made so you can create and manage backpacking trips more easily. I was a traveler for many years myself and I understand the balance of planning and flexibility. A "leg" is a stay in a place plus a route to a destination. You'll be creating "legs" to add to a vacation.
