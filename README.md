@@ -48,6 +48,7 @@ The visual representation of the leg at the top of the page indicates whether or
 
 #### Viewing Your Vacation Profile
 Included on the bar where legs are visually displayed, is a "view legs" button. This takes you to an overview of all legs you have created thus far. This is the page that allows you to edit any existing information included in either accommodation, transportation, or budget. 
+![view-legs](https://user-images.githubusercontent.com/34799623/56163637-d388b700-5f9c-11e9-8cbc-1ad487d424e1.jpg)
 
 #### Editing A Leg
 You have two choices for initiating an edit. You can either click on the visual boxes at the top, or click anywhere in the component that is currently displaying information. The budget box can only be edited by clicking in the component as there is no visual representation of it at the top of the page. All standard fields are editable.
