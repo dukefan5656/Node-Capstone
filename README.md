@@ -19,7 +19,7 @@ This form requires
 #### Adding Legs
 Once you have submitted the inital information for your vacation, you are re-directed to the main page for adding legs. To begin, you must first fill out the initial accommodation information. No particular information is required, as you can easily edit it later, as well as the trouble with knowing every particular down the line.
 
-###### 2. Accomodation Form
+##### 2. Accomodation Form
 
 Which location you're staying in (city)
 
@@ -34,6 +34,13 @@ Accommodation website
 General contact info and notes
 
 Whether the accommodation has been booked yet or not
+
+#### After Submitting Accommodation Form
+Once the form has been submitted, a bar at the top of the page is displayed that shows this "leg". The budget box is also updated.
+You then have 3 choices from here. 
+  1. Add another accomodation (which inherently creates a new leg)
+  2. Add "route" info which represents the transportation to the next destination and is the other component of a full leg.
+  3. View your current trip profile with all legs and budget visible. 
 
 #### 3. Transportation
 
