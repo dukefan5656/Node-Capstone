@@ -10,7 +10,7 @@ This site was made so you can create and manage backpacking trips more easily. I
 
 ![Landing](https://user-images.githubusercontent.com/34799623/56163616-c5d33180-5f9c-11e9-95d1-bcb50909c15e.jpg)
 
-<h3 id="user-story>User Story</h3>
+<h3 id="user-story">User Story</h3>
 
 #### Registering / Logging In
 As a user, you'll be able to register login information to access your account. If you already have an account, simply login.
