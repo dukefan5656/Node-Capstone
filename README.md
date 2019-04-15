@@ -2,22 +2,38 @@
 
 This site was made so you can create and manage backpacking trips more easily. I was a traveler for many years myself and I understand the balance of planning and flexibility. A "leg" is a stay in a place plus a route to a destination. You'll be creating "legs" to add to a vacation.
 
-### Each leg tracks:
+### User Story
 
-#### 1. A running budget for total money and days (both of which you establish when you create your vacation but can be edited later)
+#### Registering / Logging In
+As a user, you'll be able to register login information to access your account. If you already have an account, simply login.
 
-##### 2. Accomodations
+#### Creating Your First Vacation
 
-Which location you're staying in
+If this is your first time using the site, once you have been authorized, you will be re-directed to the initial vacation creation page to create your first vacation.
+This form requires 
+  1. The name of your vacation
+  2. A total budget (in USD)
+  3. Total length of the vacation (in days)
+  4. A calandar selection for when you will be starting your vacation
+
+#### Adding Legs
+Once you have submitted the inital information for your vacation, you are re-directed to the main page for adding legs. To begin, you must first fill out the initial accommodation information. No particular information is required, as you can easily edit it later, as well as the trouble with knowing every particular down the line.
+
+###### 2. Accomodation Form
+
+Which location you're staying in (city)
 
 How long
 
-An individual budget
+Accommodation Type (Hotel, Hostel, AirBnb)
 
-What kind of accommodation you're staying
+A total cost for the accommodation
+
+Accommodation website
 
 General contact info and notes
 
+Whether the accommodation has been booked yet or not
 
 #### 3. Transportation
 
